@@ -46,8 +46,6 @@ Body: Raw binary data (application/octet-stream)
 Example:
 
 bash
-Copy
-Edit
 curl -X POST http://localhost:8080/api/v1/file/uploadFile \
   -H "filename: document" \
   -H "file-extension: .pdf" \
@@ -74,17 +72,13 @@ There is a separate controller to register users. Once created, all file endpoin
 Start MinIO via Docker:
 
 bash
-Copy
-Edit
 docker run -p 9000:9000 -p 9001:9001 \
   -e "MINIO_ROOT_USER=minioadmin" \
-  -e "MINIO_ROOT_PASSWORD=minioadmin" \
+  -e "MINIO_ROOT_PASSWORD=minioadmin123" \
   quay.io/minio/minio server /data --console-address ":9001"
 Set up .env file:
 
 ini
-Copy
-Edit
 MINIO_ENDPOINT=http://localhost:9000
 MINIO_ACCESS_KEY=minioadmin
 MINIO_SECRET_KEY=minioadmin
@@ -92,19 +86,13 @@ BUCKET_NAME=your-bucket-name
 Run the Spring Boot app:
 
 bash
-Copy
-Edit
 ./gradlew bootRun
 or
 
 bash
-Copy
-Edit
 mvn spring-boot:run
 📁 Project Structure
 bash
-Copy
-Edit
 └── com.fileuploader.upload
     ├── controllers         # FileUploadController & UserController
     ├── services            # Business logic for storing and retrieving files
